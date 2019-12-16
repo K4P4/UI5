@@ -1,0 +1,58 @@
+body{
+    background-color: ghostwhite;
+  }
+
+  input {
+    background-color: lightgray;
+    padding: 9px 25px;
+    margin-left:10%;
+    height: 12px;
+    width: 60%;
+    border: none;
+    border-bottom: 1px solid rebeccapurple;
+  }
+
+  label {
+    color: rgb(190, 190, 190);
+    font-size: 14px;
+    margin-left: 14px;
+    text-align: left;
+  }
+
+  .menu{
+    background-color: rgb(80, 92, 102);
+    width: 300px;
+    height: 500px;
+    border-radius: 7px;
+    position: fixed;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    z-index: 5;
+  }
+
+  .Selection{
+    background-color: rgb(80, 92, 102);
+    width: 300px;
+    height: 500px;
+    border-radius: 7px;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    z-index: 10;
+  }
+
+  button {
+    background-color: #A076FF;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 10px 32px;
+    font-weight: 550;
+    color: whitesmoke;
+    transition: .7s;
+  }

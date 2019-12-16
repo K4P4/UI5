@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+  function toColumnNames()
+  {
+    let n = document.getElementById("tableColumn").value;
+    let htmlCode = ``
+    for(let i = 0; i < n; i++){
+      htmlCode += `<p>
+      <label><i>${i + 1} Stulpelio pavadinimas:</i></label>
+      <br />
+      <input id="ColumnName${i}"></input>
+    </p>`
+    }
+    document.getElementById("Selection").innerHTML = htmlCode;
+    document.getElementById("Selection").style.zIndex = '2';
+  }
+  
+</script> 
+  <meta charset = "utf-8">
+  <meta name = "viewport" content = "width=device-width">
+  <title> TicTacToe </title>
+   <link rel ="stylesheet" href ="styles.css">
+</head>
+
+<body>
+<div class = menu id="menu">
+  <br />
+<label for="tableName"><b>Lentelės pavadinimas</b></label>
+        <input
+          id="tableName"
+          type="text"
+          required
+        /><br />
+
+<label for="tableLines"><b>Eilučių kiekis</b></label>
+        <input
+          id="tableLines"
+          type="number"
+          min="1" max="10"
+          require
+        /><br />
+
+<label for="tableColumn"><b>Stulpelių kiekis</b></label>
+        <input
+          id="tableColumn"
+          type="number"
+          min="1" max="10"
+          require
+        /><br />
+
+<label for="tableHeight"><b>Lentelės ilgis</b></label>
+        <input
+          id="tableHeight"
+          type="number"
+          min="10" max="1000"
+          require
+        /><br />
+
+<label for="tableWidth"><b>Lentelės plotis</b></label>
+        <input
+          id="tableWidth"
+          type="number"
+          min="10" max="1000"
+          require
+        /><br />
+
+        <button type="submit" onclick="toColumnNames()">Patvirtinti</button>
+      </div>
+
+        <div className = "Selection", id = "Selection">
+          
+        </div>
+</body>
