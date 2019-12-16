@@ -5,22 +5,43 @@
   function toColumnNames()
   {
     let n = document.getElementById("tableColumn").value;
-    let htmlCode = ``
-    for(let i = 0; i < n; i++){
+    let htmlCode = `<div class = selectColumn>`;
+    for(let i = 0; i < n && i < 9; i++){
       htmlCode += `<p>
-      <label><i>${i + 1} Stulpelio pavadinimas:</i></label>
-      <br />
+      <label display: inline-block><i>&nbsp ${i + 1}</i></label>
       <input id="ColumnName${i}"></input>
     </p>`
     }
-    document.getElementById("Selection").innerHTML = htmlCode;
-    document.getElementById("Selection").style.zIndex = '2';
+    htmlCode += `<button type="submit" onclick="toTable()">Patvirtinti</button>
+    </div>`;
+    document.getElementById("selection").innerHTML = htmlCode;
+    document.getElementById("selection").style.zIndex = "3";
+    document.getElementById("menu").style.zIndex = "2";
   }
   
+  function toTable(){
+    let htmlCode = `<div class = tableInner>
+    <h1>${document.getElementById("tableName").value}</h1>
+    <table class = drawnTable width=${document.getElementById("tableWidth").value}
+    height=${document.getElementById("tableHeight").value}><tr>`;
+
+    for(let j = 0; j < document.getElementById("tableColumn").value; j++){
+    htmlCode += `<td><input class = tableHead type="text" disabled value = ${document.getElementById("ColumnName".concat(j)).value}></td>`
+    }
+
+    for(let i = 0; i < document.getElementById("tableLines").value; i++){
+    htmlCode += `<tr>`
+    for(let j = 0; j < document.getElementById("tableColumn").value; j++){
+    htmlCode += `<td><input class = tableInput type="text"/></td>`
+    }
+    }
+    document.getElementById("tableContainer").innerHTML = htmlCode;
+  }
+
 </script> 
   <meta charset = "utf-8">
   <meta name = "viewport" content = "width=device-width">
-  <title> TicTacToe </title>
+  <title> Table generator </title>
    <link rel ="stylesheet" href ="styles.css">
 </head>
 
@@ -38,7 +59,9 @@
         <input
           id="tableLines"
           type="number"
-          min="1" max="10"
+          min="1" max="8"
+          value = "1"
+          onkeydown="return false"
           require
         /><br />
 
@@ -46,7 +69,9 @@
         <input
           id="tableColumn"
           type="number"
-          min="1" max="10"
+          min="1" max="8"
+          value = "1"
+          onkeydown="return false"
           require
         /><br />
 
@@ -54,7 +79,10 @@
         <input
           id="tableHeight"
           type="number"
-          min="10" max="1000"
+          min="20" max="700"
+          step = "20"
+          onkeydown="return false"
+          value = "100"
           require
         /><br />
 
@@ -62,14 +90,19 @@
         <input
           id="tableWidth"
           type="number"
-          min="10" max="1000"
+          min="20" max="700"
+          step = "20"
+          onkeydown="return false"
+          value = "100"
           require
         /><br />
 
         <button type="submit" onclick="toColumnNames()">Patvirtinti</button>
       </div>
 
-        <div className = "Selection", id = "Selection">
-          
+        <div class = selection, id = "selection">  
+        </div>
+
+        <div class = tableContainer, id = "tableContainer">
         </div>
 </body>
